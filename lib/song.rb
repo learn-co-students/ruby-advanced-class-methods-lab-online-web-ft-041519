@@ -10,8 +10,10 @@ class Song
     self.class.all << self
   end
 
-  def create
-    self.new.save
+  def self.create
+  	song = self.new
+  	song.save
+  	song
   end
 
   def new_by_name(name)
@@ -22,7 +24,7 @@ class Song
     def initialize(name)
       @name = name
     end
-    @name.save
+    self.save
   end
 
   def find_by_name
@@ -39,6 +41,20 @@ class Song
     end
   end
 
+  def alphabetical
+  #  @name.@@all.sort!
+  end
 
+  def new_from_filename
+
+  end
+
+  def create_from_filename
+
+  end
+
+  def destrol_all
+
+  end
 
 end
