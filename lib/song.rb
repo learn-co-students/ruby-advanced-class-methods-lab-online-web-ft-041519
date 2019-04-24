@@ -17,19 +17,21 @@ class Song
   end
 
   def self.new_by_name(name)
-    self.new
-    def self.initialize(name)
-      @name = name
+      song = self.new
+      song.name = name
+      song
     end
-  end
 
   def self.create_by_name(name)
-    @name = name
-    self.save
+    song = self.new_by_name(name)
+    song.save
+    song
   end
 
-  def self.find_by_name
-    if @@all.include?(self.name)
+  def self.find_by_name(name)
+    if @@all.any? { |obj| obj.name = name }
+        puts "@@all: #{@@all}"
+      @@all.find { |obj| obj.name = name }
     else
       falsey
     end
