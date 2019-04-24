@@ -16,44 +16,45 @@ class Song
   	song
   end
 
-  def new_by_name(name)
-    @name = name
-  end
-
-  def create_by_name(name)
-    def initialize(name)
+  def self.new_by_name(name)
+    self.new
+    def self.initialize(name)
       @name = name
     end
+  end
+
+  def self.create_by_name(name)
+    @name = name
     self.save
   end
 
-  def find_by_name
+  def self.find_by_name
     if @@all.include?(self.name)
     else
       falsey
     end
   end
 
-  def find_or_create_by_name
+  def self.find_or_create_by_name
     if self.find_by_name
       self
     else self.create_by_name
     end
   end
 
-  def alphabetical
+  def self.alphabetical
   #  @name.@@all.sort!
   end
 
-  def new_from_filename
+  def self.new_from_filename
 
   end
 
-  def create_from_filename
+  def self.create_from_filename
 
   end
 
-  def destrol_all
+  def self.destrol_all
 
   end
 
